@@ -1,0 +1,36 @@
+##############################
+##### Things to Remember #####
+##############################
+
+Run:
+1. Activate environment
+2. Start the app
+
+
+  (1) To start the environment (you have to be in flaskproject):
+    $ . venv/bin/activate
+
+    To end the session:
+      $ deactivate
+
+  (2) To start the application:
+    $ python flaskr/flaskr.py
+
+    To exit:
+      $ ctrl + c
+
+To create the db:
+  (make to start the environment first)
+  (from within flaskr)
+  $ python
+  $ from flaskr import init_db; init_db()
+
+### Tear down ###
+The app context is created before the request (to the db) is sent and is destroyed when the request finishes
+teardown_appcontext(f) => (registers a function to be) called when the app context ends/is destroyed (can be because of an exception/error) 
+
+
+### __name__ == '__main__' ###
+If the python interpreter is running that module (the source file, in this case a .py file) as the main program, it sets the special __name__ variable to have a value "__main__". If this file is being imported from another module, __name__ will be set to the module's name.
+
+By doing the main check, you can have that code only execute when you want to run the module as a program and not have it execute when someone just wants to import your module and call your functions themselves. (__name__ will NOT be equal to "__main__" if the module is in another )
